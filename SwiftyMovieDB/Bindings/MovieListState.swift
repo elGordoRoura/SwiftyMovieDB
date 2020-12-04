@@ -19,11 +19,14 @@ class MovieListState: ObservableObject {
         self.movieService = movieService
     }
     
+    
     func loadMovies(with endpoint: MovieListEndpoint) {
-        self.movies = nil
-        self.isLoading = true
+        self.movies     = nil
+        self.isLoading  = true
+        
         self.movieService.fetchMovies(from: endpoint) { [weak self] (result) in
             guard let self = self else { return }
+            
             self.isLoading = false
             switch result {
             case .success(let response):
@@ -34,6 +37,4 @@ class MovieListState: ObservableObject {
             }
         }
     }
-    
 }
-

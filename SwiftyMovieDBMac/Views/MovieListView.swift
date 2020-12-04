@@ -13,6 +13,7 @@ struct MovieListView: View {
     @ObservedObject var movieListState: MovieListState
     @Binding var selectedMovie: Movie?
     
+    
     var body: some View {
         List(selection: self.$selectedMovie) {
             if self.movieListState.isLoading || self.movieListState.error != nil {
@@ -20,7 +21,6 @@ struct MovieListView: View {
                     self.movieListState.loadMovies(with: self.endpoint)
                 }
                 .padding(.top, 200)
-
             }
             
             if self.movieListState.movies != nil {
@@ -35,6 +35,7 @@ struct MovieListView: View {
         }
     }
 }
+
 
 struct MovieListView_Previews: PreviewProvider {
     static var previews: some View {

@@ -12,6 +12,7 @@ struct MovieBackdropCarouselView: View {
     let title: String
     let movies: [Movie]
     
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             Text(title)
@@ -35,6 +36,7 @@ struct MovieBackdropCarouselView: View {
         }
     }
 }
+
 
 struct MovieBackdropCarouselView_Previews: PreviewProvider {
     static var previews: some View {

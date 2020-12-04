@@ -12,8 +12,8 @@ struct NavigationMenuView: View {
     @ObservedObject var searchState = MovieSearchState()
     @State var selection: String? = "Home"
     
-    // Remove Focus on Search Field when selected
     private let cellProxy = ListCellProxy()
+    
     
     var body: some View {
         List(selection: $selection) {
@@ -22,9 +22,9 @@ struct NavigationMenuView: View {
                     if focus {
                         self.selection = "Search"
                     }
-                })            }
-//                .background(ListCellHelper(proxy: ListCellProxy()))
-                .padding(.vertical)
+                })
+            }
+            .padding(.vertical)
             
             Section(header: Text("Discover")) {
                 NavigationLink(destination: HomeView(), tag: "Home", selection: self.$selection) {
@@ -43,9 +43,9 @@ struct NavigationMenuView: View {
         }
         .listStyle(SidebarListStyle())
         .frame(minWidth: 200, idealWidth: 200, maxWidth: 248, maxHeight: .infinity)
-        
     }
 }
+
 
 struct NavigationMenuView_Previews: PreviewProvider {
     static var previews: some View {

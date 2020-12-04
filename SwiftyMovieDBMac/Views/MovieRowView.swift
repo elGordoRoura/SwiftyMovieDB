@@ -25,28 +25,24 @@ struct MovieRowView: View {
                        Text(movie.overview)
                            .font(.system(size: 12, weight: .medium))
                            .lineLimit(3)
-                       
-                       
                    }
                 Spacer()
                }
                .padding(.vertical, 8)
                .frame(height: 80)
                
-            
             Rectangle().fill(Color(NSColor.separatorColor)).frame(height: 1)
                 .offset(y: 43)
-            
-            
         }
-   
     }
 }
+
 
 struct MovieRowImage: View {
     
     @ObservedObject var imageLoader = ImageLoader()
     let imageURL: URL
+
     
     var body: some View {
         ZStack {

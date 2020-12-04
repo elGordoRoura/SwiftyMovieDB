@@ -171,7 +171,6 @@
 			children = (
 				03136E9D2557490900B2E0F6 /* AppDelegate.swift */,
 				03136E9F2557490900B2E0F6 /* SceneDelegate.swift */,
-				03136F5225574FF100B2E0F6 /* Extensions.swift */,
 				03136F0725574D6400B2E0F6 /* Utils.swift */,
 				03136F0125574D6400B2E0F6 /* Bindings */,
 				03136EF425574D6400B2E0F6 /* Views */,
@@ -179,6 +178,7 @@
 				03136F0825574D6400B2E0F6 /* Services */,
 				03136F0B25574D6400B2E0F6 /* Models */,
 				039BE023256A5B1C00A0176F /* ContentView.swift */,
+				03136F5225574FF100B2E0F6 /* Extensions.swift */,
 				03136EA32557490A00B2E0F6 /* Assets.xcassets */,
 				03136EA82557490A00B2E0F6 /* LaunchScreen.storyboard */,
 				03136EAB2557490A00B2E0F6 /* Info.plist */,

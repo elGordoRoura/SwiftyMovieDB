@@ -12,6 +12,7 @@ struct MovieBackdropCard: View {
     let movie: Movie
     @ObservedObject var imageLoader = ImageLoader()
     
+    
     var body: some View {
         VStack(alignment: .leading) {
             ZStack {
@@ -35,6 +36,7 @@ struct MovieBackdropCard: View {
         }
     }
 }
+
 
 struct MovieBackdropCard_Previews: PreviewProvider {
     static var previews: some View {

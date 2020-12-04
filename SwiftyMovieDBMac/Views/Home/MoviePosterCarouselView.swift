@@ -13,6 +13,7 @@ struct MoviePosterCarouselView: View {
     let movies: [Movie]
     @Binding var selectedMovie: Movie?
     
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             Text(title)
@@ -25,7 +26,6 @@ struct MoviePosterCarouselView: View {
                     ForEach(self.movies) { movie in
                         MoviePosterCard(movie: movie)
                             .frame(width: 204, height: 306)
- 
                             .onTapGesture {
                                 self.selectedMovie = movie
                         }
@@ -35,13 +35,12 @@ struct MoviePosterCarouselView: View {
                 .padding(.bottom)
             }
         }
-        
     }
 }
+
 
 struct MoviePosterCarouselView_Previews: PreviewProvider {
     static var previews: some View {
         MoviePosterCarouselView(title: "Now Playing", movies: Movie.stubbedMovies, selectedMovie: .constant(nil))
     }
 }
-

@@ -14,6 +14,7 @@ struct NavigationDetailView: View {
     let endpoint: MovieListEndpoint
     @State var selection: Movie?
     
+    
     var body: some View {
         HStack(spacing: 0) {
             MovieListView(endpoint: self.endpoint, movieListState: movieListState, selectedMovie: self.$selection)

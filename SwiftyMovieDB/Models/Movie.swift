@@ -5,10 +5,9 @@
 //  Created by Christopher J. Roura on 11/7/20.
 //
 
-import Foundation
+import UIKit
 
 struct MovieResponse: Decodable {
-    
     let results: [Movie]
 }
 
@@ -18,9 +17,11 @@ struct Movie: Decodable, Identifiable, Hashable {
         lhs.id == rhs.id
     }
     
+    
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
+    
     
     let id: Int
     let title: String
@@ -37,15 +38,15 @@ struct Movie: Decodable, Identifiable, Hashable {
     let videos: MovieVideoResponse?
     
     static private let yearFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy"
+        let formatter           = DateFormatter()
+        formatter.dateFormat    = "yyyy"
         return formatter
     }()
     
     static private let durationFormatter: DateComponentsFormatter = {
-        let formatter = DateComponentsFormatter()
-        formatter.unitsStyle = .full
-        formatter.allowedUnits = [.hour, .minute]
+        let formatter           = DateComponentsFormatter()
+        formatter.unitsStyle    = .full
+        formatter.allowedUnits  = [.hour, .minute]
         return formatter
     }()
     
@@ -62,8 +63,8 @@ struct Movie: Decodable, Identifiable, Hashable {
     }
     
     var ratingText: String {
-        let rating = Int(voteAverage)
-        let ratingText = (0..<rating).reduce("") { (acc, _) -> String in
+        let rating      = Int(voteAverage)
+        let ratingText  = (0..<rating).reduce("") { (acc, _) -> String in
             return acc + "★"
         }
         return ratingText
@@ -113,19 +114,19 @@ struct Movie: Decodable, Identifiable, Hashable {
     var youtubeTrailers: [MovieVideo]? {
         videos?.results.filter { $0.youtubeURL != nil }
     }
-    
 }
 
+
 struct MovieGenre: Decodable {
-    
     let name: String
 }
 
+
 struct MovieCredit: Decodable {
-    
     let cast: [MovieCast]
     let crew: [MovieCrew]
 }
+
 
 struct MovieCast: Decodable, Identifiable {
     let id: Int
@@ -133,19 +134,20 @@ struct MovieCast: Decodable, Identifiable {
     let name: String
 }
 
+
 struct MovieCrew: Decodable, Identifiable {
     let id: Int
     let job: String
     let name: String
 }
 
+
 struct MovieVideoResponse: Decodable {
-    
     let results: [MovieVideo]
 }
 
+
 struct MovieVideo: Decodable, Identifiable {
-    
     let id: String
     let key: String
     let name: String

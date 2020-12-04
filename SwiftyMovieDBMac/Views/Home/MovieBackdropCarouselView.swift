@@ -12,7 +12,8 @@ struct MovieBackdropCarouselView: View {
     let title: String
     let movies: [Movie]
     @Binding var selectedMovie: Movie?
-            
+       
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             Text(title)
@@ -25,8 +26,6 @@ struct MovieBackdropCarouselView: View {
                     ForEach(self.movies) { movie in
                         MovieBackdropCard(movie: movie)
                             .frame(width: 272, height: 200)
-                            
-                            
                             .onTapGesture {
                                 self.selectedMovie = movie
                         }
@@ -38,35 +37,42 @@ struct MovieBackdropCarouselView: View {
     }
 }
 
+
 struct MovieBackdropCarouselView_Previews: PreviewProvider {
     static var previews: some View {
         MovieBackdropCarouselView(title: "Latest", movies: Movie.stubbedMovies, selectedMovie: .constant(nil))
     }
 }
 
+
 struct ListCellHelper: NSViewRepresentable {
 
-    let proxy: ListCellProxy 
+    let proxy: ListCellProxy
 
+    
     func makeNSView(context: Context) -> NSView {
         return NSView()
     }
 
+    
     func updateNSView(_ nsView: NSView, context: Context) {
         proxy.catchCell(for: nsView)
     }
 }
 
+
 class ListCellProxy {
 
     private var tableRowView: NSTableRowView?
 
+    
     func catchCell(for view: NSView) {
-        tableRowView = view.enclosingTableRowView()
-        tableRowView?.selectionHighlightStyle = .none
-        
+        tableRowView                            = view.enclosingTableRowView()
+        tableRowView?.selectionHighlightStyle   = .none
     }
 }
+
+
 extension NSView {
     func enclosingTableRowView() -> NSTableRowView? {
         var next: NSView? = self
@@ -79,4 +85,3 @@ extension NSView {
         return nil
     }
 }
-

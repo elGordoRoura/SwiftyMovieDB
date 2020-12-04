@@ -13,6 +13,7 @@ struct LoadingView: View {
     let error: NSError?
     let retryAction: (() -> ())?
     
+    
     var body: some View {
         Group {
             if isLoading {
@@ -40,6 +41,7 @@ struct LoadingView: View {
         }
     }
 }
+
 
 struct LoadingView_Previews: PreviewProvider {
     static var previews: some View {

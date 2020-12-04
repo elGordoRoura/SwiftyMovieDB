@@ -17,9 +17,9 @@ struct MovieDetailView: View {
         self.movieDetailState.loadMovie(id: self.movie.id)
     }
     
+    
     var body: some View {
         ZStack {
-            
             if movieDetailState.movie != nil {
                 MovieDetailListView(movie: self.movieDetailState.movie!)
             }
@@ -27,22 +27,21 @@ struct MovieDetailView: View {
             LoadingView(isLoading: self.movieDetailState.isLoading, error: self.movieDetailState.error) {
                 self.movieDetailState.loadMovie(id: self.movie.id)
             }
-            
         }
         .frame(width: 600)
     }
-    
 }
+
 
 struct MovieDetailListView: View {
     
     let movie: Movie
     
     private let imageLoader = ImageLoader()
+
     
     var body: some View {
         ScrollView {
-            
             VStack(alignment: .leading, spacing: 16) {
                 MovieDetailImage(imageLoader: imageLoader, imageURL: self.movie.backdropURL)
                 Text(movie.title)
@@ -141,10 +140,12 @@ struct MovieDetailListView: View {
     }
 }
 
+
 struct MovieDetailImage: View {
     
     @ObservedObject var imageLoader: ImageLoader
     let imageURL: URL
+
     
     var body: some View {
         ZStack {
@@ -162,6 +163,7 @@ struct MovieDetailImage: View {
         }
     }
 }
+
 
 struct MovieDetailView_Previews: PreviewProvider {
     static var previews: some View {

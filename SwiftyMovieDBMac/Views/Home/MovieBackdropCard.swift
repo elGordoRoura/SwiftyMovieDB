@@ -17,6 +17,7 @@ struct MovieBackdropCard: View {
         self.imageLoader.loadImage(with: movie.backdropURL)
     }
     
+    
     var body: some View {
         VStack(alignment: .leading) {
             ZStack {
@@ -33,11 +34,12 @@ struct MovieBackdropCard: View {
             .shadow(radius: 8)
             
             Text(movie.title)
-            .font(.system(size: 12, weight: .heavy))
+                .font(.system(size: 12, weight: .heavy))
         }
         .lineLimit(1)
     }
 }
+
 
 struct MovieBackdropCard_Previews: PreviewProvider {
     static var previews: some View {

@@ -8,14 +8,13 @@
 import Foundation
 
 protocol MovieService {
-    
     func fetchMovies(from endpoint: MovieListEndpoint, completion: @escaping (Result<MovieResponse, MovieError>) -> ())
     func fetchMovie(id: Int, completion: @escaping (Result<Movie, MovieError>) -> ())
     func searchMovie(query: String, completion: @escaping (Result<MovieResponse, MovieError>) -> ())
 }
 
+
 enum MovieListEndpoint: String, CaseIterable, Identifiable {
-    
     var id: String { rawValue }
     
     case nowPlaying = "now_playing"
@@ -33,8 +32,8 @@ enum MovieListEndpoint: String, CaseIterable, Identifiable {
     }
 }
 
+
 enum MovieError: Error, CustomNSError {
-    
     case apiError
     case invalidEndpoint
     case invalidResponse
@@ -54,6 +53,4 @@ enum MovieError: Error, CustomNSError {
     var errorUserInfo: [String : Any] {
         [NSLocalizedDescriptionKey: localizedDescription]
     }
-    
 }
-

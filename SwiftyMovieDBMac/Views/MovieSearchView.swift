@@ -13,6 +13,7 @@ struct MovieSearchView: View {
     
     @State var selection: Movie?
     
+    
     var body: some View {
         HStack(spacing: 0) {
             Group {
@@ -30,7 +31,7 @@ struct MovieSearchView: View {
                         self.searchState.search(query: self.searchState.query)
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-                } else  {
+                } else {
                     List(selection: self.$selection) {
                         if self.searchState.movies != nil {
                             ForEach(self.searchState.movies!) { movie in
@@ -52,7 +53,6 @@ struct MovieSearchView: View {
                 MovieDetailView(movie: self.selection!)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background(Color(NSColor.controlBackgroundColor))
-                
             } else {
                 VStack(spacing: 8) {
                     Text("No Movie Selected")
@@ -67,6 +67,7 @@ struct MovieSearchView: View {
         }
     }
 }
+
 
 struct MovieSearchView_Previews: PreviewProvider {
     static var previews: some View {

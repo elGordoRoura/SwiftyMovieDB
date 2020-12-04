@@ -17,12 +17,14 @@ class ImageLoader: ObservableObject {
     
     var imageCache = _imageCache
 
+    
     func loadImage(with url: URL) {
         let urlString = url.absoluteString
         if let imageFromCache = imageCache.object(forKey: urlString as AnyObject) as? UIImage {
             self.image = imageFromCache
             return
         }
+    
         
         DispatchQueue.global(qos: .background).async { [weak self] in
             guard let self = self else { return }
